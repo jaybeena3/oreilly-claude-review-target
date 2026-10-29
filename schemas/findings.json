@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "severity": {"type": "string", "enum": ["critical", "major", "minor"]},
+          "file": {"type": "string", "description": "Path as shown in the diff, without the a/ or b/ prefix."},
+          "line": {"type": "integer", "description": "Line number in the new version of the file."},
+          "issue": {"type": "string", "description": "What is wrong and why it matters in this code."},
+          "suggestion": {"type": "string", "description": "The concrete change that fixes it."},
+          "confidence": {"type": "number", "description": "From 0 to 1. How sure you are that this is a real problem."}
+        },
+        "required": ["severity", "file", "line", "issue", "suggestion", "confidence"],
+        "additionalProperties": false
+      }
+    },
+    "suggested_tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": {"type": "string"},
+          "case": {"type": "string"},
+          "gap": {"type": "string"}
+        },
+        "required": ["target", "case", "gap"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["findings", "suggested_tests"],
+  "additionalProperties": false
+}

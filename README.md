@@ -31,5 +31,5 @@ The second push on Day 19:
 git push origin day19-fix-prepared:pr/day19-two-findings
 ```
 
-## Turning on the reviewer (Day 17)
-The `ci-setup` branch adds everything the workflow needs: `.claude/` (the Skill, CLAUDE.md, the hook), `schemas/`, `prompts/`, and `.github/workflows/review.yml`. Merge it into `main` on Day 17, add an `ANTHROPIC_API_KEY` repository secret, and install the Claude GitHub App. Until then, opening a PR triggers nothing.
+## The reviewer
+From Day 17 on, `main` carries the reviewer: the `pr-review` Skill, `CLAUDE.md`, and `.github/workflows/review.yml`. The hook arrives on Day 18 and incremental review on Day 19. To run it on your own copy, add an `ANTHROPIC_API_KEY` repository secret and install the Claude GitHub App.
